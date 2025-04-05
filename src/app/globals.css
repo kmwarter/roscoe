@@ -1,0 +1,54 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Global reset to avoid default margins and paddings */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Ensure that html, body, and your root container are full height */
+html,
+body,
+#__next {
+  height: 100%;
+}
+
+/* Custom variables for colors */
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+/* Flex layout for overall page structure */
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: Arial, Helvetica, sans-serif;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Header and footer take up only as much space as they need */
+header,
+footer {
+  flex-shrink: 0;
+}
+
+/* Main content fills the remaining space */
+main {
+  flex: 1;
+  overflow-y: auto; /* optional: handles overflow gracefully */
+}
